@@ -1,7 +1,14 @@
 import "./App.css";
+import Navbar from "./Components/Navbar/Navbar";
+import TaskForm from "./Components/TaskForm";
 
 function App() {
-  return <div className="text-red-600 text-center p-10">Tasks todo</div>;
+  return (
+    <div className="">
+      <Navbar />
+      <TaskForm />
+    </div>
+  );
 }
 
 export default App;
