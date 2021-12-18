@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.d_mod {
+  @apply absolute top-1 transform text-xl pointer-events-none transition duration-150;
+}
