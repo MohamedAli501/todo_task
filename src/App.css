@@ -5,3 +5,15 @@
 .d_mod {
   @apply absolute top-1 transform text-xl pointer-events-none transition duration-150;
 }
+
+.form-style {
+  @apply bg-gray-50 p-6 flex flex-col justify-center items-center border-2 rounded-md shadow-lg space-y-4 w-full md:w-2/3;
+}
+
+.task_name {
+  @apply p-2 rounded-md shadow-xl border outline-none bg-gray-100;
+}
+
+.input_length {
+  @apply w-full p-2 outline-none bg-transparent ml-2 rounded-md border;
+}

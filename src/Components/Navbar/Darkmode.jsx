@@ -8,7 +8,7 @@ const Darkmode = () => {
     <div>
       <div
         onClick={() => setModToggle(!modToggle)}
-        className="px-2 py-2 w-[75px] h-[30px] border border-gray-500 rounded-full relative cursor-pointer "
+        className="px-2 py-2 w-[75px] h-[30px] border border-gray-300 rounded-full relative cursor-pointer "
       >
         <FiMoon
           className={`d_mod ${
