@@ -6,10 +6,14 @@ const Language = () => {
       <select
         defaultValue="en"
         id=""
-        className="w-[75px] px-1 outline-none rounded-sm bg-gray-"
+        className="w-[75px] px-1 outline-none rounded-sm bg-blue-600 border text-white"
       >
-        <option value="en">EN</option>
-        <option value="ar">AR</option>
+        <option className="" value="en">
+          EN
+        </option>
+        <option className="" value="ar">
+          AR
+        </option>
       </select>
     </div>
   );
