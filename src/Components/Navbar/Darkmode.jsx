@@ -5,10 +5,24 @@ import useDarkMode from "../../Controls/useDarkMode";
 const Darkmode = () => {
   const [theme, setTheme] = useDarkMode();
 
+  // Darkmode toggle
+  const themeToggle = () => {
+    setTheme(theme);
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      localStorage.theme = "light";
+    } else {
+      localStorage.theme = "dark";
+    }
+  };
+
   return (
     <div>
       <div
-        onClick={() => setTheme(theme)}
+        onClick={() => themeToggle()}
         className="px-2 py-2 w-[75px] h-[30px] border border-gray-300 rounded-full relative cursor-pointer "
         title="Light & Dark mode switch"
       >
@@ -27,6 +41,7 @@ const Darkmode = () => {
           }`}
         />
       </div>
+      <button onClick={() => console.log(localStorage.theme)}>rrr</button>
     </div>
   );
 };
