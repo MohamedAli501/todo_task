@@ -41,7 +41,6 @@ const Darkmode = () => {
           }`}
         />
       </div>
-      <button onClick={() => console.log(localStorage.theme)}>rrr</button>
     </div>
   );
 };
