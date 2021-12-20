@@ -4,11 +4,11 @@ import Language from "./Language";
 
 const Navbar = () => {
   return (
-    <header className=" bg-blue-700 shadow-xl text-white">
+    <header className=" bg-blue-700 shadow-xl dark:bg-slate-800 text-slate-50">
       <div className="container py-6 flex justify-between items-center">
-        <div className="uppercase font-bold text-4xl tracking-widest">
+        <h1 className="uppercase font-bold text-4xl tracking-widest text-slate-50 hover:text-slate-200">
           task todo
-        </div>
+        </h1>
         <nav className="flex items-center space-x-4">
           <Darkmode />
           <Language />

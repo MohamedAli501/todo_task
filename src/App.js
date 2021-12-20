@@ -1,12 +1,14 @@
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
-import TaskForm from "./Components/Form/TaskForm";
+import Content from "./Components/Content";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
-    <div className="font-body">
+    <div className="font-body  dark:bg-slate-700">
       <Navbar />
-      <TaskForm />
+      <Content />
+      <Footer />
     </div>
   );
 }
