@@ -15,5 +15,9 @@
 }
 
 .input_length {
-  @apply w-full p-2 outline-none bg-transparent ml-2 rounded-md border;
+  @apply w-full p-2 outline-none bg-transparent ml-2 rounded-md border dark:bg-slate-50;
+}
+
+.content_h {
+  min-height: calc(100vh - 185px);
 }

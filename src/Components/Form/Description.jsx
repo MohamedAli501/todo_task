@@ -8,9 +8,9 @@ const Description = ({ inputCount, addDescription }) => {
         .map((el, i) => (
           <div
             key={i}
-            className="w-full flex justify-between items-center pl-2 mb-2 relative bg-slate-100"
+            className="w-full flex justify-between items-center pl-2 mb-2 relative bg-slate-100 dark:bg-slate-400"
           >
-            <span>{i + 1}-</span>
+            <span className="font-bold dark:text-white">{i + 1}-</span>
             <input
               autoComplete="off"
               count={i}
@@ -24,6 +24,12 @@ const Description = ({ inputCount, addDescription }) => {
             />
           </div>
         ))}
+      <small
+        id="description_filld"
+        className="text-red-500 dark:text-red-600 hidden"
+      >
+        Description inputs mast be 10 characters or more...
+      </small>
     </div>
   );
 };
