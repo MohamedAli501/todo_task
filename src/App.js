@@ -16,11 +16,7 @@ function App() {
       document.documentElement.className = "light";
     }
   }, []);
-  // React.useEffect(() => {
-  //   if (window.localStorage.getItem("todoTheme") !== null)
-  //     document.documentElement.className =
-  //       window.localStorage.getItem("todoTheme");
-  // }, []);
+
   return (
     <div className="font-body  dark:bg-slate-700">
       <Navbar />

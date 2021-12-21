@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React from "react";
 import { BsPlusCircleDotted } from "react-icons/bs";
 import Description from "./Description";
@@ -59,15 +60,15 @@ const TaskForm = () => {
   };
 
   // Add new description input
-  const addInput = () => {
-    for (let x = 0; x < values.length; x++) {
-      if (values[x].desription.length < 10 || !values[x].desription.trim())
-        return;
-    }
+  // const addInput = () => {
+  //   for (let x = 0; x < values.length; x++) {
+  //     if (values[x].desription.length < 10 || !values[x].desription.trim())
+  //       return;
+  //   }
 
-    setValues((old) => [...old, { desription: "" }]);
-    setDesriptionCount(desriptionCount + 1);
-  };
+  //   setValues((old) => [...old, { desription: "" }]);
+  //   setDesriptionCount(desriptionCount + 1);
+  // };
 
   // Add task name value
   const addTaskName = (e) => {
