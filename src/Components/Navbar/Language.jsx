@@ -1,8 +1,10 @@
 import React from "react";
+import { MdLanguage } from "react-icons/md";
 
 const Language = () => {
   return (
-    <div>
+    <div className="flex items-center">
+      <MdLanguage className="text-2xl mx-2" />
       <select
         title="Language switch"
         defaultValue="en"

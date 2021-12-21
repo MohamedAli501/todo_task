@@ -100,6 +100,8 @@ const TaskForm = () => {
             placeholder="Enter task name ..."
             onChange={(e) => addTaskName(e)}
             ref={taskInputName}
+            title="Task name input"
+            autoComplete="off"
           />
           <small className="text-red-500 hidden">
             Task name mast be 5 characters or more..
@@ -121,13 +123,16 @@ const TaskForm = () => {
             <span
               className=" p-2 text-2xl cursor-pointer  text-sky-700 hover:text-sky-800 dark:text-white dark:hover:text-slate-200"
               title="Add more task"
-              onClick={() => addInput()}
+              // onClick={() => addInput()}
             >
               <BsPlusCircleDotted />
             </span>
           </div>
         </div>
-        <button className="bg-blue-700 hover:bg-blue-600 text-white dark:bg-slate-600 dark:hover:bg-slate-500 w-1/2 py-2 uppercase font-semibold rounded-md shadow-md">
+        <button
+          className="bg-blue-700 hover:bg-blue-600 text-white dark:bg-slate-600 dark:hover:bg-slate-700 w-1/2 py-2 uppercase font-semibold rounded-md shadow-md"
+          title="Add new task"
+        >
           {" "}
           Add Task{" "}
         </button>
