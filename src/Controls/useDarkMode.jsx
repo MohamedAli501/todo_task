@@ -4,6 +4,9 @@ const useDarkMode = () => {
   let localTheme;
   if (localStorage.theme !== undefined) {
     localTheme = localStorage.theme;
+  } else {
+    localStorage.theme = "light";
+    localTheme = localStorage.theme;
   }
 
   const [theme, setTheme] = useState(localTheme);

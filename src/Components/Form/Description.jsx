@@ -21,6 +21,7 @@ const Description = ({ inputCount, addDescription }) => {
               onChange={(e) => {
                 addDescription(e, i);
               }}
+              title={`Task description number ${i + 1}`}
             />
           </div>
         ))}
