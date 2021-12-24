@@ -8,7 +8,7 @@ const Description = ({ inputCount, addDescription }) => {
         .map((el, i) => (
           <div
             key={i}
-            className="w-full flex justify-between items-center pl-2 mb-2 relative bg-slate-100 dark:bg-slate-400"
+            className="w-full flex justify-between items-center px-2 mb-2 relative bg-slate-100 dark:bg-slate-400"
           >
             <span className="font-bold dark:text-white">{i + 1}-</span>
             <input

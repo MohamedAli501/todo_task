@@ -29,15 +29,15 @@ const Darkmode = () => {
         <FiMoon
           className={`d_mod ${
             theme === "light"
-              ? "translate-x-10 rotate-[270deg] opacity-100 text-white"
+              ? "translate-x-10 rtl:-translate-x-10 rotate-[270deg] rtl:rotate-[-360deg] opacity-100 text-white"
               : "translate-x-0 opacity-0"
           }`}
         />
         <FiSun
           className={`d_mod text-yellow-500 ${
             theme === "dark"
-              ? "translate-x-0 rotate-[-270deg] opacity-100"
-              : "translate-x-10 opacity-0"
+              ? "translate-x-0 rotate-[-270deg] rtl:rotate-[270deg] opacity-100"
+              : "translate-x-10 rtl:-translate-x-10 opacity-0"
           }`}
         />
       </div>
