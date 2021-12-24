@@ -1,13 +1,33 @@
+/*eslint-disable*/
 import React from "react";
 import { BsPlusCircleDotted } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { nanoid } from "nanoid";
+import { addTask } from "../../store/sliceList";
 import Description from "./Description";
 
-const TaskForm = () => {
+const TaskForm = ({ addOk }) => {
+  const currentDate = new Date().toLocaleString();
+
+  let options = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+
+  const taskId = nanoid(10);
+
+  const dispatch = useDispatch();
+
   const [desriptionCount, setDesriptionCount] = React.useState(1);
 
   const [taskName, setTaskName] = React.useState("");
 
-  const [values, setValues] = React.useState([{ desription: "" }]);
+  const [values, setValues] = React.useState([
+    { desription: "", complete: false },
+  ]);
 
   // Focus new description input
   React.useEffect(() => {
@@ -42,13 +62,23 @@ const TaskForm = () => {
         inputEle[x].className = "input_length border-red-600";
         descriptionError.className = "text-red-500 dark:text-red-600 block";
         inputEle[x].focus();
-
         return;
       } else {
         descriptionError.className = "text-red-500 dark:text-red-600 hidden";
         inputEle[x].className = "input_length";
       }
     }
+    dispatch(
+      addTask({
+        task_id: taskId,
+        task_name: taskName,
+        task_description: values,
+        task_Date: currentDate,
+        task_complete: false,
+      })
+    );
+
+    addOk(true);
 
     setDesriptionCount(1);
     setTaskName("");
@@ -65,7 +95,7 @@ const TaskForm = () => {
         return;
     }
 
-    setValues((old) => [...old, { desription: "" }]);
+    setValues((old) => [...old, { desription: "", complete: false }]);
     setDesriptionCount(desriptionCount + 1);
   };
 
@@ -82,10 +112,7 @@ const TaskForm = () => {
 
   return (
     <div className="container mt-6 flex justify-center">
-      <form
-        onSubmit={(e) => submitForm(e)}
-        className="form-style bg-white dark:text-slate-800 dark:bg-slate-500 dark:border-slate-700 "
-      >
+      <form className="form-style bg-white dark:text-slate-800 dark:bg-slate-500 dark:border-slate-700 ">
         <div className="w-full flex flex-col  space-y-2">
           <label
             htmlFor="task_name"
@@ -123,7 +150,7 @@ const TaskForm = () => {
             <span
               className=" p-2 text-2xl cursor-pointer  text-sky-700 hover:text-sky-800 dark:text-white dark:hover:text-slate-200"
               title="Add more task"
-              // onClick={() => addInput()}
+              onClick={() => addInput()}
             >
               <BsPlusCircleDotted />
             </span>
@@ -132,6 +159,7 @@ const TaskForm = () => {
         <button
           className="bg-blue-700 hover:bg-blue-600 text-white dark:bg-slate-600 dark:hover:bg-slate-700 w-1/2 py-2 uppercase font-semibold rounded-md shadow-md"
           title="Add new task"
+          onClick={(e) => submitForm(e)}
         >
           {" "}
           Add Task{" "}
