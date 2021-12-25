@@ -42,19 +42,17 @@ const TaskItem = ({ task }) => {
           <th>
             <div className="head_taskname flex justify-between">
               <div className="flex items-center">
-                <span className="text-sm font-normal normal-case">
-                  Task name :{" "}
-                </span>{" "}
-                <h2 className="ml-2 rtl:mr-2 capitalize text-slate-200 dark:text-yellow-500 text-sm md:text-lg">
+                <span className="text-sm font-normal normal-case">Name : </span>{" "}
+                <h2 className="mx-2 text-center capitalize text-slate-200 dark:text-yellow-500 text-sm md:text-lg">
                   {" "}
                   {task.task_name}
                 </h2>
               </div>
               <div className="flex items-center">
                 <span className="text-sm font-normal normal-case">
-                  Date created :{" "}
+                  Created :{" "}
                 </span>{" "}
-                <h2 className="ml-2 rtl:mr-2 capitalize text-slate-200 dark:text-yellow-500 text-sm md:text-lg">
+                <h2 className="mx-2 text-center  capitalize text-slate-200 dark:text-yellow-500 text-sm md:text-lg">
                   {" "}
                   {task.task_Date}
                 </h2>
