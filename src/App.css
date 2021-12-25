@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .nav-links {
-  @apply flex justify-center items-center space-x-6 py-3 px-12 w-max bg-blue-700 shadow-2xl dark:bg-slate-800 text-slate-50 rounded-b-full;
+  @apply flex justify-center items-center space-x-6 pt-3 pb-10 md:pb-3 px-12 w-max bg-blue-700 shadow-lg dark:bg-slate-800 text-slate-50 rounded-b-full;
 }
 
 .active {
@@ -11,7 +11,7 @@
 }
 
 .d_mod {
-  @apply absolute top-1 transform text-xl pointer-events-none transition duration-150;
+  @apply transition duration-150;
 }
 
 .form-style {
