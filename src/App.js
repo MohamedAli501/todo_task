@@ -5,14 +5,18 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Content from "./Components/Content";
 import Footer from "./Components/Footer/Footer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadTaskList } from "./store/sliceList";
+import { changeLanguage } from "./store/langSlice";
+import { checkLanguage } from "./Controls/language";
 
 function App() {
   const [addToLocal, setAddToLocal] = React.useState(false);
   const [reload, setReload] = React.useState(false);
   const [tasks] = React.useState(localStorage.getItem("tasks"));
+  const [lang] = React.useState(localStorage.getItem("lang"));
 
+  const getLang = useSelector((state) => state.language.lang);
   const dispatch = useDispatch();
 
   // Check if localstorage have tasks item
@@ -20,6 +24,15 @@ function App() {
     if (tasks && !reload) {
       dispatch(loadTaskList(JSON.parse(tasks)));
       setReload(true);
+    }
+  }, []);
+
+  // Check if localstorage have langeuage
+  React.useEffect(() => {
+    if (lang) {
+      dispatch(changeLanguage(lang));
+      document.documentElement.lang = lang;
+      checkLanguage(lang);
     }
   }, []);
 
@@ -38,7 +51,7 @@ function App() {
 
   return (
     <Router>
-      <div className="font-body  dark:bg-slate-700">
+      <div className="font-body rtl:font-arabic dark:bg-slate-700">
         <Navbar />
 
         <Content addToLocal={setAddToLocal} />

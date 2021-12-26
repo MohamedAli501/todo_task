@@ -5,17 +5,10 @@ import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 import { addTask } from "../../store/sliceList";
 import Description from "./Description";
+import { languages } from "../../Controls/language";
 
 const TaskForm = ({ addOk }) => {
   const currentDate = new Date().toLocaleString();
-
-  let options = {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  };
 
   const taskId = nanoid(10);
 
@@ -24,6 +17,8 @@ const TaskForm = ({ addOk }) => {
   const [desriptionCount, setDesriptionCount] = React.useState(1);
 
   const [taskName, setTaskName] = React.useState("");
+
+  const [taskAdded, setTaskAdded] = React.useState(false);
 
   const [values, setValues] = React.useState([
     { desription: "", complete: false },
@@ -78,6 +73,12 @@ const TaskForm = ({ addOk }) => {
       })
     );
 
+    setTaskAdded(true);
+
+    setTimeout(() => {
+      setTaskAdded(false);
+    }, 1500);
+
     addOk(true);
 
     setDesriptionCount(1);
@@ -111,35 +112,45 @@ const TaskForm = ({ addOk }) => {
   };
 
   return (
-    <div className="container mt-6 flex justify-center">
+    <div className="container mt-6 flex justify-center text-[12px] md:text-sm relative">
+      <div
+        className={`alert top-44 md:top-36 transition duration-150  bg-green-400 text-green-900 ring-green-500 border-green-500 ${
+          taskAdded ? "block" : "hidden"
+        } `}
+      >
+        {languages("Task has been added ...", "تم إضافة مهمة جديدة ...")}
+      </div>
       <form className="form-style bg-white dark:text-slate-800 dark:bg-slate-500 dark:border-slate-700 ">
         <div className="w-full flex flex-col  space-y-2">
           <label
             htmlFor="task_name"
-            className="text-xl font-normal text-gray-800 dark:text-white"
+            className=" font-normal text-gray-800 dark:text-white"
           >
-            Task name :{" "}
+            {languages(" Task name :", "إسم المهمة :")}{" "}
           </label>
           <input
             className="task_name"
             type="text"
             id="task_name"
-            placeholder="Enter task name ..."
+            placeholder={languages("Enter task name ...", "إسم المهمة ...")}
             onChange={(e) => addTaskName(e)}
             ref={taskInputName}
             title="Task name input"
             autoComplete="off"
           />
           <small className="text-red-500 hidden">
-            Task name mast be 5 characters or more..
+            {languages(
+              "Task name mast be 5 characters or more..",
+              "إسم المهمة يجب أن لا يقل عن 5 حروف ..."
+            )}
           </small>
         </div>
         <div className="w-full space-y-2">
           <label
             htmlFor="task_description"
-            className="text-xl font-normal text-gray-800 dark:text-white"
+            className=" font-normal text-gray-800 dark:text-white"
           >
-            Task description :{" "}
+            {languages("Task description :", "وصف المهمة :")}
           </label>
           <div className="flex justify-between items-start py-4 mb-20 shadow-xl border rounded-md border-slate-200  outline-none bg-gray-100 overflow-hidden dark:bg-slate-400 dark:border-slate-500">
             <Description
@@ -148,8 +159,8 @@ const TaskForm = ({ addOk }) => {
             />
 
             <span
-              className=" p-2 text-2xl cursor-pointer  text-sky-700 hover:text-sky-800 dark:text-white dark:hover:text-slate-200"
-              title="Add more task"
+              className=" p-2 text-2xl cursor-pointer  text-blue-700 hover:text-blue-800 dark:text-slate-600 dark:hover:text-slate-700"
+              title={languages("Add more task ...", "أضف مهمة أخرى ...")}
               onClick={() => addInput()}
             >
               <BsPlusCircleDotted />
@@ -158,11 +169,11 @@ const TaskForm = ({ addOk }) => {
         </div>
         <button
           className="bg-blue-700 hover:bg-blue-600 text-white dark:bg-slate-600 dark:hover:bg-slate-700 w-1/2 py-2 uppercase font-semibold rounded-md shadow-md"
-          title="Add new task"
+          title={languages("Add new task", "أضف مهمة جديدة")}
           onClick={(e) => submitForm(e)}
         >
           {" "}
-          Add Task{" "}
+          {languages("Add Task", "أضف مهمة")}
         </button>
       </form>
     </div>
