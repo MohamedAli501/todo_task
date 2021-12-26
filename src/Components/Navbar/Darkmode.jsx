@@ -1,5 +1,6 @@
 import React from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
+import { languages } from "../../Controls/language";
 import useDarkMode from "../../Controls/useDarkMode";
 
 const Darkmode = () => {
@@ -23,8 +24,8 @@ const Darkmode = () => {
     <div>
       <div
         onClick={() => themeToggle()}
-        className="p-2 text-2xl"
-        title="Light & Dark mode switch"
+        className="p-2 text-2xl cursor-pointer"
+        title={languages("Light & Dark mode switch", "تغيير الوضع")}
       >
         <FiMoon
           className={`d_mod ${

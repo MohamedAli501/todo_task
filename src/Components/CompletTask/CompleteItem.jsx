@@ -1,4 +1,9 @@
 import React from "react";
+import {
+  ArabicDateTime,
+  ArabicNumber,
+  languages,
+} from "../../Controls/language";
 import CompleteDescription from "./CompleteDescription";
 
 const CompleteItem = ({ task }) => {
@@ -18,19 +23,21 @@ const CompleteItem = ({ task }) => {
           <th>
             <div className="head_taskname flex justify-between">
               <div className="flex items-center">
-                <span className="text-sm font-normal normal-case">Name : </span>{" "}
-                <h2 className="mx-2 text-center capitalize text-slate-200 dark:text-yellow-500 text-sm md:text-lg">
+                <span className="text-[10px] md:text-sm font-normal normal-case">
+                  {languages("Name  ", "الأسم ")}
+                </span>{" "}
+                <h2 className="mx-2 text-center capitalize text-slate-200 dark:text-yellow-500 text-[10px] md:text-sm break-all">
                   {" "}
                   {task.task_name}
                 </h2>
               </div>
               <div className="flex items-center">
-                <span className="text-sm font-normal normal-case">
-                  Created :{" "}
+                <span className="text-[10px] md:text-sm font-normal normal-case">
+                  {languages("Created ", "إنشاء ")}
                 </span>{" "}
-                <h2 className="mx-2 text-center capitalize text-slate-200 dark:text-yellow-500 text-sm md:text-lg">
+                <h2 className="mx-2 text-center capitalize text-slate-200 dark:text-yellow-500 text-[10px] md:text-sm break-all">
                   {" "}
-                  {task.task_Date}
+                  {languages(task.task_Date, ArabicDateTime(task.task_Date))}
                 </h2>
               </div>
             </div>
@@ -43,12 +50,12 @@ const CompleteItem = ({ task }) => {
             <table className="border-collapse w-full ">
               <thead>
                 <tr className="bg-slate-300 dark:bg-slate-600 dark:text-slate-100">
-                  <th className="table-border dark:border-slate-300 border text-center w-20">
-                    Number
+                  <th className="table-border dark:border-slate-300 border text-[10px] md:text-sm text-center w-20">
+                    {languages("Number", "رقم")}
                   </th>
 
-                  <th className="table-border dark:border-slate-300 border">
-                    Description
+                  <th className="table-border dark:border-slate-300 border text-[10px] md:text-sm">
+                    {languages("Description", "وصــف المهمـة")}
                   </th>
                 </tr>
               </thead>
@@ -72,17 +79,20 @@ const CompleteItem = ({ task }) => {
             <div className="foot_taskname flex justify-center">
               {" "}
               <span className="text-sm md:text-lg font-normal normal-case">
-                Complete :{" "}
+                {languages("Complete : ", "تم تنفيذ : ")}
               </span>{" "}
-              <h4 className="ml-2 rtl:mr-2 capitalize text-slate-800 dark:text-slate-100 text-lg font-normal">
+              <h4 className="ml-2 rtl:mr-2 capitalize text-slate-800 dark:text-slate-100 text-sm md:text-lg font-normal">
                 {" "}
                 <span className="text-slate-100 dark:text-cyan-500">
                   {" "}
-                  {completed}
+                  {languages(completed, ArabicNumber(completed))}
                 </span>{" "}
-                from{" "}
+                {languages(" from ", " من ")}
                 <span className="text-slate-50 dark:text-yellow-500">
-                  {task.task_description.length}
+                  {languages(
+                    task.task_description.length,
+                    ArabicNumber(task.task_description.length)
+                  )}
                 </span>
               </h4>
             </div>

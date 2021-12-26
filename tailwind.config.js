@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     fontFamily: {
       body: ['"Roboto"', "sans-serif", "system-ui"],
+      arabic: "Tajawal, sans-serif",
     },
     extend: {
       container: {
